@@ -23,6 +23,7 @@ class pgboxdata{
 						'btnwidth' => 60,
 						'btnheight' => 45,
 						'btneffect' => 'none',
+						'wantedskin' => 'dark',
 						'box-status' => 'active',
 						'custome-css' => ''
 						);
@@ -43,18 +44,23 @@ class pgboxdata{
 						'height' => $boxinf['height'],
 						'boxbackcolor' => $boxinf['boxbackcolor'],
 						'boxeffect' => $boxinf['boxeffect'],
+						'boxcloseeffect' => $boxinf['boxcloseeffect'],
 						'autoshow' => $boxinf['autoshow'],
 						'autoshowdelay' => $boxinf['autoshowdelay'],
 						'page' => $boxinf['page'],
 						'wantbtn' => $boxinf['wantbtn'],
 						'btnbackcolor' => $boxinf['btnbackcolor'],
+						'btntxtcolor' => $boxinf['btntxtcolor'],
 						'btntxt' => $boxinf['btntxt'],
+						'btnfontsize' => $boxinf['btnfontsize'],
 						'btnpos' => $boxinf['btnpos'],
 						'btnwidth' => $boxinf['btnwidth'],
 						'btnheight' => $boxinf['btnheight'],
 						'btneffect' => $boxinf['btneffect'],
-						'box-status' => $boxinf['active'],
-						'custome-css' => $boxinf['custome-css']
+						'wantedskin' => $boxinf['wantedskin'],
+						'box-status' => $boxinf['box-status'],
+						'custome-css' => $boxinf['custome-css'],
+						'mobile_compatible' => $boxinf['mobile_compatible']
 						);
 			$this->updateit($data);
 		}

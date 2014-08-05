@@ -1,21 +1,10 @@
 === PG FIXED BOX ===
 
-Features :
-- ability to show a complete sidebar in a popup box.
-- two different effects for box it self and its button !
-- ability to make unlimited number of boxes !
-- ability to show in specific pages of your site
-- ability to make the box shows automatically or by user click or both !
-- ability to make a box invisibile without deleting it !
-- ability to change the box width and height and button width and height !
-- ability to change the the button and box background color directly from settings page
-- ability to add custome css in every box settings !
-
 Contributors: ParsiGroup.net Team
 
-Donate link: 
+Donate link: fixedboxes.esy.es/wp
 
-Requires at least: wordpress 3.5 +
+Requires at least: wordpress 3.5
 
 Tags: pop up sidebar, fixed boxes 
 
@@ -34,6 +23,28 @@ that you specified in box settings page and enjoy!
 NOTE : widget that you insert in the box needs to be styled !
 you can add style for your widgets in your theme style.css file or inserting them in plugin style file
 or adding them to every box custome css textarea
+
+Features :
+- ability to show a complete sidebar in a popup box.
+- two different effects for box it self and its button !
+- ability to make unlimited number of boxes !
+- ability to show in specific pages of your site
+- ability to make the box shows automatically or by user click or both !
+- ability to make a box invisibile without deleting it !
+- ability to change the box width and height and button width and height !
+- ability to change the the button and box background color directly from settings page
+- ability to add custome css in every box settings !
+
+NEW In Version 2 :
+- redesigned admin area .
+- ability to set an effect for box close event ! (only in pro)
+- ability to change button text color . (only in pro)
+- ability to change button font size (only in pro)
+- ability to make a box mobile compatible !! (only in pro)
+- added 5 new amazing effects (1 in lite)
+- ability to choose between 3 different skins ! (1 in lite)
+
+few of above features are deleted in lite version.
 
 == Installation ==
 HOW TO INSTALL
@@ -54,16 +65,8 @@ HOW TO USE
 -now visit your site and you should see the widget in there !
 
 == Frequently Asked Questions ==
-Q : can i change the speed and of effects ?
-A : yes you can and it is easy ! go to plugin js folder open the file effects.js and modify numbers within function function runboxeffect and function runbtneffect
-
-Q : where is the plugin style file ?
-A : it is in the plugin css folder and its name is styles.css
-
-Q : how i can change the button position?
-A : first choose one direction for button in boxes settings page ( which name is Fixed Boxes) 
-and then in example choose top left after that open the file styles.css in : pg-fixed-box > css > styles.css ,
-in that file find the selector ".pg-btn-tl" < in the selector name 'tl' means top left , now edit the numbers within the selector braces " {} "
+Q : can i change the speed of effects ?
+A : yes you can and it is easy ! go to plugin js folder open the file effects.js and modify numbers within function "function runboxeffect" and "function runbtneffect"
 
 Q : where i can use this plugin ?
 A : as it is a wordpress plugin , everywhere you can install wordpress , you can use this plugin too !

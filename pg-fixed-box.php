@@ -1,13 +1,14 @@
 <?php
 defined( 'ABSPATH' ) OR exit;
 /*
-Plugin Name: PG Fixed Boxes WP Plugin (POPUP  Sidebars Plugin)
+Plugin Name: PG Fixed Boxes Plugin (WP POPUP  Sidebars)
 Plugin URI: http://fixedboxes.esy.es/wp/
 Description: Center positioned pop up box which accepts any wiget of your choice ! with ability to make unlimited number of fully customizable boxes !
-Version: 1.5
+Version: 2.0
 Author: PG Team
 Author URI: http://parsigroup.net/
-License: .
+License: GPL2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /**************************
@@ -60,6 +61,17 @@ function fixed_box_add_page() {
 
 
 /**************************
+adding on activation setting link
+**************************/
+function pg_settings_link($links) { 
+  $settings_link = '<a href="options-general.php?page=pg-main">Settings</a>'; 
+  array_unshift($links, $settings_link); 
+  return $links; 
+}
+$plugin = plugin_basename(__FILE__);
+add_filter("plugin_action_links_$plugin", 'pg_settings_link' );
+
+/**************************
 
 loading style and js codes
 
@@ -78,8 +90,11 @@ function pg_fixedbox_scripts(){
 
 function pg_fixedbox_admin_scripts($hook){
 	wp_enqueue_style('pg-fixedbox-admin-css',plugins_url().'/pg-fixed-box/css/admin-style.css');
+	wp_enqueue_script('pg-admin-js',plugins_url().'/pg-fixed-box/js/admin-effect.js');
 	wp_enqueue_style( 'wp-color-picker' );
-	wp_enqueue_script('pg-admin-js',plugins_url().'/pg-fixed-box/js/colorpicker.js', array( 'wp-color-picker' ), false, true );
+	wp_enqueue_script('pg-admin-colorpicker-js',plugins_url().'/pg-fixed-box/js/colorpicker.js', array( 'wp-color-picker' ), false, true );
+	wp_enqueue_script( 'jquery-ui-core' );
+	wp_enqueue_script('jquery-ui-accordion');
 }
 
 function pg_custome_style($csstoadd){
@@ -87,6 +102,16 @@ function pg_custome_style($csstoadd){
 	str_replace('<style>','',$src);
 	str_replace('</style>','',$src);
 	echo '<style>'.$csstoadd.'</style>';
+}
+
+function pg_fixedbox_transit(){
+	wp_enqueue_script('pg-transit-js',plugins_url().'/pg-fixed-box/js/transit.js');
+}
+
+function pg_fixedbox_skin($skinname){
+	if($skinname == 'dark'){
+		wp_enqueue_style('pg-skin-dark',plugins_url().'/pg-fixed-box/skins/dark/style.css');
+	}
 }
 
 /**************************
@@ -144,8 +169,11 @@ function pg_code_insertion(){
 	$currentboxes = new pgboxdata();
 	$boxes;
 	$data;
-	$loadedscripts = false;
+	$loadedmainscripts = false;
+	$is_loaded_transit = false;
+	$mobilecomp;
 	$boxes = $currentboxes->get_boxes();
+	$transeffects = array('pgrotate1');
 	if (is_array($boxes)&& count($boxes)>0){
 		foreach ($boxes as $key){
 			if(($key['page'] == 'everywhere' || (is_home() && $key['page'] == 'home')
@@ -155,22 +183,33 @@ function pg_code_insertion(){
 				
 				$data [] = $key;	
 				if(!$loadedscripts){
-					if(trim($key['custome-css']) != false)
-						pg_custome_style($key['custome-css']);
 					pg_fixedbox_scripts();
-					$loadedscripts = true;
+					pg_fixedbox_skin($key['wantedskin']);
+					$loadedmainscripts = true;
+				}
+				
+				if(trim($key['custome-css']) != false)
+					pg_custome_style($key['custome-css']);
+						
+				if($key['mobile_compatible'] == 'yes')
+					$mobilecomp [$key['theid']] = 1;
+						
+				if (!$is_loaded_transit && (in_array($key['boxeffect'] , $transeffects ) 
+				|| in_array($key['btneffect'] , $transeffects ) || in_array($key['boxcloseeffect'] , $transeffects))){
+					pg_fixedbox_transit();
+					$is_loaded_transit = true;
 				}
 			}
 		}
 		if(count($data)>0)
-			appendthebox($data);
+			appendthebox($data,$mobilecomp);
 	}
 }
 
 /**************************
 codes to be appended
 **************************/
-function appendthebox($boxdata){
+function appendthebox($boxdata,$mobilecomp){
 
 ?>
 <script type="text/javascript">
@@ -212,7 +251,7 @@ function appendthebox($boxdata){
 						},<?php echo $key['autoshowdelay'];?>);\
 				<?php } ?>\
 				<?php if($key['btneffect'] != 'none'){ ?>\
-						console.log(runbtneffect(\'btn<?php echo $key['theid'];?>\' , \'<?php echo $key['btneffect'];?>\'));\
+						runbtneffect(\'btn<?php echo $key['theid'];?>\' , \'<?php echo $key['btneffect'];?>\');\
 				<?php } ?>\
 						jj(\'.closebtn\').click(function(){\
 								jj(this).parent().parent().parent().fadeOut();\
@@ -221,23 +260,23 @@ function appendthebox($boxdata){
 						
 						
 						jj('body').append('\
-								<div class=\"pg-fixedbox <?php echo $key['theid']; ?> <?php echo 'pg-fixedbox' . $key['theid'];?>\">\
-									<div class="pg-centered" style="<?php echo 'width:' . $key['width'].'px;height:' . $key['height'] . 'px;'; ?>\">\
-										<div class=\"thebox<?php echo $key['theid'];?>\" style="<?php echo 'width:' . $key['width'].'px;height:' . $key['height'] . 'px;'; ?>\">\
-											<span class=\"closebtn\"></span>\
+							<?php if($key['wantbtn'] == 'yes'){ ?>\
+								<div class=\"btncontainer <?php echo $key['btnpos']; ?>\"   style="width:<?php echo $key['btnwidth']; ?>px;height:<?php echo $key['btnheight']; ?>px;">\
+									<div class=\"pg-btn btn<?php echo $key['theid']; ?> bt-<?php echo $key['wantedskin']; ?>\"  style="background-color:<?php echo $key['btnbackcolor']; ?>;width:<?php echo $key['btnwidth']; ?>px;height:<?php echo $key['btnheight']; ?>px;">\
+										<span class=\"btntext\" style="color:<?php echo $key['btntxtcolor']; ?>;font-size:<?php echo $key['btnfontsize']; ?>px;"><?php echo $key['btntxt']; ?></span>\
+									</div>\
+								</div>\
+							<?php }?>\
+								<div class=\"pg-fixedbox <?php echo $key['theid']; ?> <?php echo 'pg-fixedbox' . $key['theid'];?> fxb-<?php echo $key['wantedskin']; ?>\">\
+									<div class=\"pg-centered  pg-centered<?php echo $key['theid'];?> \" style="width:<?php echo $key['width']+12; ?>px;height:<?php echo $key['height']+40; ?>px;\">\
+										<div class=\"thebox thebox<?php echo $key['theid'];?> th-<?php echo $key['wantedskin']; ?>\" style="<?php echo 'width:' . $key['width'].'px;height:' . $key['height'] . 'px;'; ?>\">\
+											<span class=\"closebtn cl-<?php echo $key['wantedskin']; ?>\"></span>\
 											<div class=\"boxcontent\" style="<?php echo 'background-color:' . $key['boxbackcolor'] . ';"';?>>\
 											'+ fxcontents +'\
 											</div>\
 										</div>\
 									</div>\
 								</div>\
-							<?php if($key['wantbtn'] == 'yes'){ ?>\
-								<div class=\"btncontainer <?php echo $key['btnpos']; ?>\"   style="width:<?php echo $key['btnwidth']; ?>px;height:<?php echo $key['btnheight']; ?>px;">\
-									<div class=\"pg-btn btn<?php echo $key['theid']; ?>\"  style="background-color:<?php echo $key['btnbackcolor']; ?>;width:<?php echo $key['btnwidth']; ?>px;height:<?php echo $key['btnheight']; ?>px;">\
-										<span class=\"btntext\" ><?php echo $key['btntxt']; ?></span>\
-									</div>\
-								</div>\
-							<?php }?>\
 							'+thescript); 
 					}
 		});

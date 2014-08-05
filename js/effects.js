@@ -15,9 +15,31 @@ function runboxeffect(id,effect){
 		},800);
 	}
 	else if (effect == 'shake'){
-		//jQuery('.'+id).jrumble({
-		ShakeIt('.'+id,100,900,6,'hor'); // change hor to vert for vertical shaking
+		ShakeIt('.'+id,100,900,6,'hor'); 
 	}
+	else if (effect == 'pgrotate1'){
+		jj('.'+id).transition({
+					rotate: '+=15deg',
+					x: '+=10',
+					duration: 70
+				})
+				.hover(function(e){
+					jj('.'+id).stop().transition({
+					rotate: '-=15deg',
+					x: '-=10',
+					duration: 70
+					});
+					e.preventDefault();
+				},function(e){
+					jj('.'+id).stop().transition({
+					rotate: '+=15deg',
+					x: '+=10',
+					duration: 70
+					});
+					e.preventDefault();
+				});
+	}
+	
 }
 
 function runbtneffect(id,effect){
@@ -37,13 +59,31 @@ function runbtneffect(id,effect){
 		
 	}
 	else if (effect == 'shake'){
-		jQuery('.'+id).hover(function(){
+		jQuery('.'+id).stop().hover(function(){
 			ShakeIt('.'+id,5,900,6,'hor'); // change hor to vert for vertical shaking
 		});
 	}
+	else if (effect == 'pgrotate1'){
+		jj('.'+id).hover(function(e){
+					jj('.'+id).stop().transition({
+					rotate: '+=15deg',
+					x: '+=10',
+					duration: 110
+					});
+					e.preventDefault();
+				},function(e){
+					jj('.'+id).stop().transition({
+					rotate: '-=15deg',
+					x: '-=10',
+					duration: 110
+					});
+					e.preventDefault();
+				});
+	}
+
 }
 
-
+//ShakeIt('.'+id,100,900,6,'hor'); 
 /*
  * Shake It plugin - http://www.soslignes-ecrivain-public.fr/ 
  * v1.0

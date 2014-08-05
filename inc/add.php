@@ -53,6 +53,7 @@ if ( is_admin() ) {
 						'btnwidth' => $_POST['btnwidth'],
 						'btnheight' => $_POST['btnheight'],
 						'btneffect' => $_POST['selectedbtneffect'],
+						'wantedskin' => $_POST['selectedskin'],
 						'box-status' => $_POST['box-status'],
 						'custome-css' => $_POST['custome-css']
 						);
@@ -66,8 +67,8 @@ if ( is_admin() ) {
 
 	}
 ?>
-
-		<?php screen_icon(); echo "<h2 class='sidebar-name'>" .  __( 'ADD New Box', 'fixedboxes' ) . "</h2>";?>
+	<div class="wrap">
+		<?php screen_icon(); echo "<h2 class='pg-sidebars'>" .  __( 'ADD New Box', 'fixedboxes' ) . "<a class=\"button-primary\" href=\"options-general.php?page=pg-main\">Manage Boxes</a></h2>";?>
 		<hr />
 		<?php if ( false !== $_REQUEST['updated'] && $iscomplete) { ?>
 		<div class="updated fade"><p><strong><?php _e( 'Box Added' ); ?></strong></p></div>
@@ -82,72 +83,229 @@ if ( is_admin() ) {
 		<?php }
 
 		// If the form has just been submitted, this shows the notification ?>
-			
-	<div class="pg-content-wrap widgets-holder-wrap" style="background-color:white;padding:8px;margin:10px;">		
+		
+	<div class="pg-content-wrap" style="background-color:white;padding:8px;margin:10px;">		
 		<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">		
 			<input type="hidden" name="updated" value="add" />
 
-			<p><?php _e("Box Title :  ", 'fixedboxes' ); ?><input id="box_name" name="box_name" type="text" value="" size="20"><?php _e("  ex: My Box ", 'fixedboxes' ); ?></p>			
-			<hr />	
-			<p><?php _e("Box Width :  ", 'fixedboxes' ); ?><input id="box_width" name="box_width" type="text" value="" size="10">px<?php _e("  ex: 500", 'fixedboxes' ); ?></p>
-			<p><?php _e("Box Height : ", 'fixedboxes' ); ?><input id="box_height" name="box_height" type="text" value="" size="10">px<?php _e("  ex: 300", 'fixedboxes' ); ?></p>
-			<p><?php _e("Box Background Color : ", 'fixedboxes' ); ?><input class="boxbgcolor" name="boxbgcolor" type="text" value="#ffffff" class="pg-color-field" data-default-color="#ffffff" /><?php _e("  ex: #000" , 'fixedboxes' ); ?></p>
-			
-			<p><?php _e("Select one effect for box pop up : ", 'fixedboxes' ); ?></p>
-			<p>
-				<select name="selectedboxeffect">
-					<option value="none"   <?php if ($key['selectedboxeffect'] == 'none') echo 'selected="selected"'; ?>><?php _e("None", 'fixedboxes' ); ?></option>
-					<option value="rumble"   <?php if ($key['selectedboxeffect'] == 'rumble') echo 'selected="selected"'; ?>><?php _e("JRumble", 'fixedboxes' ); ?></option>
-					<option value="shake"   <?php if ($key['selectedboxeffect'] == 'shake') echo 'selected="selected"'; ?>><?php _e("Shake", 'fixedboxes' ); ?></option>
-				</select>
-			</p>
-			
-			<hr />
-			<p><input type="checkbox" name="autoshow" value="yes" checked><?php _e(" Show the box after specified miliseconds ", 'fixedboxes' ); ?></p>
-			<p><?php _e("Number of miliseconds : ", 'fixedboxes' ); ?><input id="box_autoshow_delay" name="box_autoshow_delay" type="text" value="2000" size="20"><?php _e("  ex: 2000", 'fixedboxes' ); ?></p>
-			<p><?php _e("In which page you want show it ? ", 'fixedboxes' ); ?>
-				<select name="selectedplace">
-					<option value="everywhere" selected="selected"><?php _e("Show in any page", 'fixedboxes') ?></option>
-					<option value="home"><?php _e("Show only in home page", 'fixedboxes') ?></option>
-					<option value="page"><?php _e("Show only in pages", 'fixedboxes') ?></option>
-					<option value="single"><?php _e("Show only in single articles", 'fixedboxes') ?></option>
-					<option value="archive"><?php _e("Show only in archive pages", 'fixedboxes') ?></option>
-					<option value="category"><?php _e("Show only in category pages", 'fixedboxes') ?></option>
-				</select>
-			</p>
-			<hr />
-			<p><input type="checkbox" name="iwantbtn" value="yes" checked><?php _e(" Show a button for making box available or hide it ", 'fixedboxes' ); ?></p>
-			<p><?php _e("Button Background Color : ", 'fixedboxes' ); ?><input class="btnbgcolor" name="btnbgcolor" type="text" value="#E04343" data-default-color="#E04343" /></p>			
-			<p><?php _e("Button Text : ", 'fixedboxes' ); ?><input class="btntext" name="btntext" type="text" value=""  /></p>			
-			<p><?php _e("Button width : ", 'fixedboxes' ); ?><input class="btnwidth" name="btnwidth" type="text" value=""  /></p>			
-			<p><?php _e("Button height : ", 'fixedboxes' ); ?><input class="btnheight" name="btnheight" type="text" value=""  /></p>
-			
-			<p><?php _e("Select one effect for button hover : ", 'fixedboxes' ); ?></p>
-			<p>
-				<select name="selectedbtneffect">
-					<option value="none" selected="selected"><?php _e("None", 'fixedboxes' ); ?></option>
-					<option value="rumble" ><?php _e("JRumble", 'fixedboxes' ); ?></option>
-					<option value="shake" ><?php _e("Shake", 'fixedboxes' ); ?></option>
-				</select>
-			</p>
-			
-			<p><?php _e("Choose position of the box button : ", 'fixedboxes' ); ?>
-				<select name="btnplace">
-					<option value="pg-btn-tl"><?php _e("top left", 'fixedboxes') ?></option>
-					<option value="pg-btn-tr"><?php _e("top right", 'fixedboxes') ?></option>
-					<option value="pg-btn-bl" selected="selected"><?php _e("bottom left", 'fixedboxes') ?></option>
-					<option value="pg-btn-br"><?php _e("bottom right", 'fixedboxes') ?></option>
-				</select>
-			</p>
-			<hr />
-			<p><input type="textarea" name="custome-css" value="" cols="35" rows="5"></p>
-			<hr />
-			<p><input type="checkbox" name="box-status" value="active" checked><?php _e(" Show this box in my site. ", 'fixedboxes' ); ?></p>
-			<p class="submit"><input type="submit" class="button-primary" value="Add Box" /></p>
+			<table>
+				<tbody>
+					<tr>
+						<th>
+							<h3><?php _e("Box Settings ", 'fixedboxes' ); ?></h3>
+						</th>
+					</tr>
+		
+					<tr>
+						<th>
+							<?php _e("Box title ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input id="box_name" name="box_name" type="text" value="<?php echo (isset($_POST['box_name']))? $_POST['box_name'] : ""; ?>" size="20">
+							<span class="description"><?php _e("  ex: My Box ", 'fixedboxes' ); ?></span>	
+						</td>
+					</tr>
+						
+					<tr>
+						<th>
+							<?php _e("Box Width ", 'fixedboxes' ); ?>
+						</th>
+						<td>	
+							<input id="box_width" name="box_width" type="text" value="<?php echo (isset($_POST['box_width']))? $_POST['box_width'] : ""; ?>" size="4"></input>
+							<span class="description"><?php _e(" px ex: 500", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>
+						
+					<tr>
+						<th>	
+							<?php _e("Box Height ", 'fixedboxes' ); ?>
+						</th>	
+						<td>	
+							<input id="box_height" name="box_height" type="text" value="<?php echo (isset($_POST['box_height']))? $_POST['box_height'] : ""; ?>" size="4"></input>
+							<span class="description"><?php _e(" px  ex: 300", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>
+						
+					<tr>	
+						<th>
+							<?php _e("Box BackColor ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="boxbgcolor" name="boxbgcolor" type="text" value="<?php echo (isset($_POST['boxbgcolor']))? $_POST['boxbgcolor'] : "#fff"; ?>" data-default-color="<?php echo (isset($_POST['boxbgcolor']))? $_POST['boxbgcolor'] : "#fff"; ?>" ></input>
+						</td>
+					</tr>
+						
+					<tr>	
+						<th>
+							<?php _e("Box Effect ", 'fixedboxes' ); ?>
+						</th>					
+						<td>
+							<select name="selectedboxeffect">
+								<option value="none"   selected="selected"><?php _e("None", 'fixedboxes' ); ?></option>
+								<option value="rumble"   ><?php _e("JRumble", 'fixedboxes' ); ?></option>
+								<option value="shake"   ><?php _e("Shake", 'fixedboxes' ); ?></option>
+								<option value="pgrotate1"   ><?php _e("Rotate 15", 'fixedboxes' ); ?></option>
+
+							</select>
+							<span class="description"><?php _e("Select one effect for box open event ", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>
+	
+					<tr>	
+						<th>
+							<h3><?php _e("Button Settings", 'fixedboxes' ); ?></h3>
+						</th>
+					</tr>
+					
+					<tr>
+						<th>
+							<?php _e("Button Visibility", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input type="checkbox" name="iwantbtn" value="yes" checked></input>
+							<label for="iwantbtn"><?php _e("Show a button for show and hide the box ", 'fixedboxes' ); ?></label>
+						</td>
+					</tr>	
+					
+					<tr>
+						<th>
+							<?php _e("Button Back Color", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="btnbgcolor" name="btnbgcolor" type="text" value="<?php echo (isset($_POST['btnbgcolor']))? $_POST['btnbgcolor'] : "#E04343"; ?>" data-default-color="<?php echo (isset($_POST['btnbgcolor']))? $_POST['btnbgcolor'] : "#E04343"; ?>" ></input>		
+						</td>
+					</tr>	
+
+					<tr>
+						<th>
+							<?php _e("Button Text ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="btntext" name="btntext" type="text" value="<?php echo (isset($_POST['btntext']))? $_POST['btntext'] : ""; ?>"  ></input>			
+						</td>
+					</tr>
+					
+					<tr>
+						<th>
+							<?php _e("Button width ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="btnwidth" name="btnwidth" type="text" value="<?php echo (isset($_POST['btnwidth']))? $_POST['btnwidth'] : ""; ?>"  size="4"></input>			
+						</td>
+					</tr>
+					
+					<tr>
+						<th>
+							<?php _e("Button height ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="btnheight" name="btnheight" type="text" value="<?php echo (isset($_POST['btnheight']))? $_POST['btnheight'] : ""; ?>"  size="4"></input>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>
+							<?php _e("Button Effect ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<select name="selectedbtneffect">
+								<option value="none"   selected="selected"><?php _e("None", 'fixedboxes' ); ?></option>
+								<option value="rumble"   ><?php _e("JRumble", 'fixedboxes' ); ?></option>
+								<option value="shake"   ><?php _e("Shake", 'fixedboxes' ); ?></option>
+								<option value="pgrotate1"  ><?php _e("Rotate 15", 'fixedboxes' ); ?></option>
+							</select>
+							<span class="description"><?php _e("Select one effect for button hover", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>
+							<?php _e("Button Position", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<select name="btnplace">
+								<option value="pg-btn-tl"  selected="selected"><?php _e("top left", 'fixedboxes') ?></option>
+								<option value="pg-btn-tr"  ><?php _e("top right", 'fixedboxes') ?></option>
+								<option value="pg-btn-bl"  ><?php _e("bottom left", 'fixedboxes') ?></option>
+								<option value="pg-btn-br"  ><?php _e("bottom right", 'fixedboxes') ?></option>
+							</select>
+							<span class="description"><?php _e("Choose position of the box button", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>
+							<h3><?php _e("General Settings", 'fixedboxes' ); ?></h3>
+						</th>
+					</tr>
+												
+					<tr>
+						<th>
+							<?php _e("Box Skin", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<select name="selectedskin">
+								<option value="dark"  selected="selected"><?php _e("Dark", 'fixedboxes' ); ?></option>
+							</select>
+						</td>
+					</tr>
+							
+					<tr>
+						<th>
+							<?php _e("In which page you want show it ? ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<select name="selectedplace">
+								<option value="everywhere"  selected="selected"><?php _e("Show in any page", 'fixedboxes' ); ?></option>
+								<option value="home"   ><?php _e("Show only in home page", 'fixedboxes' ); ?></option>
+								<option value="page"   ><?php _e("Show only in pages", 'fixedboxes' ); ?></option>
+								<option value="single"   ><?php _e("Show only in single articles", 'fixedboxes' ); ?></option>
+								<option value="archive"   ><?php _e("Show only in archive pages", 'fixedboxes' ); ?></option>
+								<option value="category"   ><?php _e("Show only in category pages", 'fixedboxes' ); ?></option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>	
+						<th>
+							<?php _e("Custome Css ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<textarea type="textarea" name="custome-css" value="" cols="35" rows="5"><?php echo (isset($_POST['custome-css']))? $_POST['custome-css'] : ""; ?></textarea>
+							<span class="description"><?php _e(" Insert your custome css ", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>	
+						
+					<tr>	
+						<th>	
+							<?php _e("Duration", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input type="checkbox" name="autoshow" value="yes" checked></input>
+							<label for="autoshow"><?php _e("Auto show the box after below number of miliseconds ", 'fixedboxes' ); ?></label>
+							<br>
+							<input id="box_autoshow_delay" name="box_autoshow_delay" type="text" value="<?php echo (isset($_POST['box_autoshow_delay']))? $_POST['box_autoshow_delay'] : 2000; ?>" size="4"></input>
+							<span class="description"><?php _e("number (in miliseconds)   ex: 2000", 'fixedboxes' ); ?></span>
+						</td>
+					</tr>	
+
+					<tr>	
+						<th>	
+							<?php _e("Visibility Status", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input type="checkbox" name="box-status" value="active" checked></input>
+							<label for="box-status"><?php _e("Show this box in my site ", 'fixedboxes' ); ?></label>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+			<p><input type="submit" class="button-primary" name="btnadd" value="<?php _e(" Add Box ", 'fixedboxes' ); ?>"></p>
 		</form>	
 		
 	</div>
-		
+	</div>
 	<?php
 }
 ?>
