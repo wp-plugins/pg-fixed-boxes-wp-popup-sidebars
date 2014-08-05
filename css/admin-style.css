@@ -1,0 +1,8 @@
+.pg_half{
+width:50%;
+}
+.pg-content-wrap{
+max-width:80%;
+position:relative;
+min-width:450px;
+}
