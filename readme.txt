@@ -35,6 +35,7 @@ Features :
 - ability to change the the button and box background color directly from settings page
 - ability to add custome css in every box settings !
 
+== Changelog ==
 NEW In Version 2 :
 - redesigned admin area .
 - ability to set an effect for box close event ! (only in pro)
@@ -74,3 +75,7 @@ A : as it is a wordpress plugin , everywhere you can install wordpress , you can
 Q : im disabled the blugin but sidebar contents are not removed how to remove them ?
 A : for prevent the data lost wordpress keeps your widgets even if that widget area is not there
 if you dont want that widgets just drag them to the top of inactive sidebars area and refresh the page!
+
+== Screenshots ==
+preview1.jpg
+preview2.jpg
