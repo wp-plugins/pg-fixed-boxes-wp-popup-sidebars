@@ -77,5 +77,5 @@ A : for prevent the data lost wordpress keeps your widgets even if that widget a
 if you dont want that widgets just drag them to the top of inactive sidebars area and refresh the page!
 
 == Screenshots ==
-preview1.jpg
-preview2.jpg
+preview1.png
+preview2.png
