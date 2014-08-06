@@ -78,5 +78,5 @@ or after downloading the plugin go to wordpress dashboard and navigate to plugin
 if you dont want that widgets just drag them to the top of inactive sidebars area and refresh the page!</p>
 
 == Screenshots ==
-1 - box settings screenshot 1
-2 - box settings screenshot 2
+1. box settings screenshot 1
+2. box settings screenshot 2
