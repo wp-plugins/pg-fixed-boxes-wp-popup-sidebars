@@ -15,67 +15,68 @@ Stable tag: trunk
 License: "GPLv2 or later"
 
 == Description ==
-This is a pop up sidebars plugin , which means first you create a box from plugin page in wordpress
+<p>This is a pop up sidebars plugin , which means first you create a box from plugin page in wordpress
 dashboard, after that plugin creates a widgetarea in Appearance > widgets , then you go there and
 insert few widgets in that widget area , and you are done ! just visit your site , page or any place
-that you specified in box settings page and enjoy!
+that you specified in box settings page and enjoy!</p>
 
-NOTE : widget that you insert in the box needs to be styled !
+<strong> NOTE : </strong> 
+<p>widget that you insert in the box needs to be styled !
 you can add style for your widgets in your theme style.css file or inserting them in plugin style file
-or adding them to every box custome css textarea
+or adding them to every box custome css textarea</p>
 
-Features :
-- ability to show a complete sidebar in a popup box.
-- two different effects for box it self and its button !
-- ability to make unlimited number of boxes !
-- ability to show in specific pages of your site
-- ability to make the box shows automatically or by user click or both !
-- ability to make a box invisibile without deleting it !
-- ability to change the box width and height and button width and height !
-- ability to change the the button and box background color directly from settings page
-- ability to add custome css in every box settings !
+<strong>Features :</strong>
+<li>- ability to show a complete sidebar in a popup box.</li>
+<li>- two different effects for box it self and its button !</li>
+<li>- ability to make unlimited number of boxes !</li>
+<li>- ability to show in specific pages of your site</li>
+<li>- ability to make the box shows automatically or by user click or both !</li>
+<li>- ability to make a box invisibile without deleting it !</li>
+<li>- ability to change the box width and height and button width and height !</li>
+<li>- ability to change the the button and box background color directly from settings page</li>
+<li>- ability to add custome css in every box settings !</li>
 
 == Changelog ==
-NEW In Version 2 :
-- redesigned admin area .
-- ability to set an effect for box close event ! (only in pro)
-- ability to change button text color . (only in pro)
-- ability to change button font size (only in pro)
-- ability to make a box mobile compatible !! (only in pro)
-- added 5 new amazing effects (1 in lite)
-- ability to choose between 3 different skins ! (1 in lite)
+<strong>NEW In Version 2 :</strong>
+<li>- Redesigned admin area .</li>
+<li>- Ability to set an effect for box close event ! (only in pro)</li>
+<li>- Ability to change button text color . (only in pro)</li>
+<li>- Ability to change button font size (only in pro)</li>
+<li>- Ability to make a box mobile compatible !! (only in pro)</li>
+<li>- Added 5 new amazing effects (1 in lite)</li>
+<li>- Ability to choose between 3 different skins ! (1 in lite)</li>
 
-few of above features are deleted in lite version.
+Few of above features are deleted in lite version.
 
 == Installation ==
-HOW TO INSTALL
--extratc plugin files
--copy folder pg-fixed-box into wordpress plugins folder which is located in : yourdomain/wp-content/plugins
-or after downloading the plugin go to wordpress dashboard and navigate to plugins > installed plugins , then from top click Add New button , in next page press upload , select the file and press Install Now.
+<strong>HOW TO INSTALL</strong>
+<li>-extratc plugin files</li>
+<li>-copy folder pg-fixed-box into wordpress plugins folder which is located in : yourdomain/wp-content/plugins
+or after downloading the plugin go to wordpress dashboard and navigate to plugins > installed plugins , then from top click Add New button , in next page press upload , select the file and press Install Now.</li>
 
-HOW TO ACTIVATE
--go to wordpress dashboard and navigate to plugins > installed plugins , from tab All or Inactive find the "PG Fixed Boxes WP Plugin (pop up sidebars plugin)" and below the title press Activate.
--wait until wordpress shows a box containing plugin activated
+<strong>HOW TO ACTIVATE</strong>
+<li>-go to wordpress dashboard and navigate to plugins > installed plugins , from tab All or Inactive find the "PG Fixed Boxes WP Plugin (pop up sidebars plugin)" and below the title press Activate.</li>
+<li>-wait until wordpress shows a box containing plugin activated</li>
 
-HOW TO USE
--after activating the plugin it will automatically creates a box with default information
--for viewing current available boxes navigate to : Settings > Fixed Boxes
--for adding new box navigate to : Settings > Add New Box
--after editing box settings go to Dashboard > Appearance > Widgets and insert widgets in the widget area that has same name as your box
--then make sure you checked  Show this box in my site  in your box settings.
--now visit your site and you should see the widget in there !
+<strong>HOW TO USE</strong>
+<li>-after activating the plugin it will automatically creates a box with default information</li>
+<li>-for viewing current available boxes navigate to : Settings > Fixed Boxes</li>
+<li>-for adding new box navigate to : Settings > Add New Box</li>
+<li>-after editing box settings go to Dashboard > Appearance > Widgets and insert widgets in the widget area that has same name as your box</li>
+<li>-then make sure you checked  Show this box in my site  in your box settings.</li>
+<li>-now visit your site and you should see the widget in there !</li>
 
 == Frequently Asked Questions ==
-Q : can i change the speed of effects ?
-A : yes you can and it is easy ! go to plugin js folder open the file effects.js and modify numbers within function "function runboxeffect" and "function runbtneffect"
+<p>Q : can i change the speed of effects ?</p>
+<p>A : yes you can and it is easy ! go to plugin js folder open the file effects.js and modify numbers within function "function runboxeffect" and "function runbtneffect"</p>
 
-Q : where i can use this plugin ?
-A : as it is a wordpress plugin , everywhere you can install wordpress , you can use this plugin too !
+<p>Q : where i can use this plugin ?</p>
+<p>A : as it is a wordpress plugin , everywhere you can install wordpress , you can use this plugin too !</p>
 
-Q : im disabled the blugin but sidebar contents are not removed how to remove them ?
-A : for prevent the data lost wordpress keeps your widgets even if that widget area is not there
-if you dont want that widgets just drag them to the top of inactive sidebars area and refresh the page!
+<p>Q : im disabled the blugin but sidebar contents are not removed how to remove them ?</p>
+<p>A : for prevent the data lost wordpress keeps your widgets even if that widget area is not there
+if you dont want that widgets just drag them to the top of inactive sidebars area and refresh the page!</p>
 
 == Screenshots ==
-preview1.png
-preview2.png
+1 - box settings screenshot 1
+2 - box settings screenshot 2
