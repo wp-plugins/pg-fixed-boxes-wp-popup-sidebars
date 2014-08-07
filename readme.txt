@@ -37,6 +37,10 @@ or adding them to every box custome css textarea</p>
 <li>- ability to add custome css in every box settings !</li>
 
 == Changelog ==
+== 2.1 ==
+fixed admin view problem.
+
+== 2.0 ==
 <strong>NEW In Version 2 :</strong>
 <li>- Redesigned admin area .</li>
 <li>- Ability to set an effect for box close event ! (only in pro)</li>
