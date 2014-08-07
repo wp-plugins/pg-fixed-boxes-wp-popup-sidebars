@@ -1,0 +1,45 @@
+#fx-settings-page{
+	max-width:800px;
+	min-width:470px;
+}
+
+.pg-sidebars{
+	height:30px;
+	display:inline-block;
+}
+
+.pg-sidebars .button-primary{
+	margin: 0px 20px 0px 20px; 
+}
+
+.pg-content-wrap{
+	max-width:100%;
+	min-width:350px;
+	position:relative;
+	display:block;
+	margin: 0;
+	border:1px solid #c3c3c3;
+}
+
+.pg-content-head{
+	max-width:100%;
+	min-width:350px;
+	position:relative;
+	display:block;
+	background-color:#fff;
+	border:1px solid #c3c3c3;
+	padding:5px;
+	margin: 0;
+}
+
+.pg-content-wrap th{
+	text-align:left;
+}
+
+.pg-content-wrap label{
+	word-break:break-all;
+}
+
+.pg-box-settings{
+	
+}
