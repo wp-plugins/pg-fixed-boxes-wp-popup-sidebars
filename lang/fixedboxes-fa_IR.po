@@ -1,0 +1,425 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PG FixedBoxes\n"
+"POT-Creation-Date: 2014-09-11 02:21+0330\n"
+"PO-Revision-Date: 2014-09-11 02:29+0330\n"
+"Last-Translator: \n"
+"Language-Team: PG <support@parsigroup.net>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../inc/add.php:13 ../inc/main.php:26
+msgid "Please enter the name of box"
+msgstr "لطفا نام جعبه را وارد نمایید"
+
+#: ../inc/add.php:14 ../inc/main.php:27
+msgid "Please correct the width field (It only accept Numbers)"
+msgstr "لطفا فیلد پهنا را تصحیح کنید ( مقدار این فیلد تنها می تواند عدد باشد)"
+
+#: ../inc/add.php:15 ../inc/main.php:28
+msgid "Please correct the height field (It only accept Numbers)"
+msgstr "لطفا فیلد ارتفاع را تصحیح کنید (مقدار این فیلد فقط می تواند عدد باشد)"
+
+#: ../inc/add.php:16 ../inc/main.php:29
+msgid "Please enter background-color of the box. Example : #FFFFFF"
+msgstr "لطفا رنگ پس زمینه ی جعبه را وارد نمایید مثال: #fff"
+
+#: ../inc/add.php:18 ../inc/main.php:31
+msgid ""
+"Please correct \"Number of miliseconds\" field of autoshow section (it is "
+"numeric and could not be empty)"
+msgstr ""
+"لطفا فیلد زمان بر حسب میلی ثانیه را تصحیح کنید ( مقدار این فیلد تنها می "
+"تواندد عدد باشد ، همچنین نباید خالی باشد)"
+
+#: ../inc/add.php:19 ../inc/main.php:32
+msgid ""
+"Please correct the entered value in \"Number of miliseconds\" field of "
+"autoshow section (max: 50000, min:0)"
+msgstr ""
+"لطفا مقدار وارد شده در فیلد توقف خودکار تا مدت زمان تعیین شده را تصحیح کنید "
+"( کمترین : 0  بیشترین : 50000)"
+
+#: ../inc/add.php:22
+msgid ""
+"Please correct \"Button width\" field of i want button section (it is "
+"numeric and could not be empty)"
+msgstr ""
+
+#: ../inc/add.php:23
+msgid ""
+"Please correct the entered value in \"Button width\" field of i want button "
+"section (max: 5000, min:0)"
+msgstr ""
+
+#: ../inc/add.php:24
+msgid ""
+"Please correct \"Button height\" field of i want button section (it is "
+"numeric and could not be empty)"
+msgstr ""
+
+#: ../inc/add.php:25
+msgid ""
+"Please correct the entered value in \"Button height\" field of i want button "
+"section (max: 5000, min:0)"
+msgstr ""
+
+#: ../inc/add.php:27 ../inc/main.php:43
+msgid "Please enter background-color of the button. Example : #FFFFFF"
+msgstr ""
+
+#: ../inc/add.php:75
+msgid "ADD New Box"
+msgstr "اضافه نمودن جعبه ی جدید"
+
+#: ../inc/add.php:75
+msgid "Manage Boxes"
+msgstr "برو به مدیریت جعبه ها"
+
+#: ../inc/add.php:75 ../inc/main.php:91
+msgid "My Website"
+msgstr "سایت من"
+
+#: ../inc/add.php:78
+msgid "Box Added"
+msgstr "جعبه اضافه شد"
+
+#: ../inc/add.php:82 ../inc/main.php:97
+msgid "Errors detected :"
+msgstr "چند ارور یافت شد: "
+
+#: ../inc/add.php:99 ../inc/main.php:130
+msgid "Box Settings "
+msgstr "تنظیمات جعبه"
+
+#: ../inc/add.php:105 ../inc/main.php:136
+msgid "Box title "
+msgstr "عنوان جعبه"
+
+#: ../inc/add.php:109 ../inc/main.php:140
+msgid "  ex: My Box "
+msgstr "مثال: جعبه ی من"
+
+#: ../inc/add.php:115 ../inc/main.php:146
+msgid "Box Width "
+msgstr "پهنای جعبه"
+
+#: ../inc/add.php:119 ../inc/main.php:150
+msgid " px ex: 500"
+msgstr "پیکسل مثال: 500"
+
+#: ../inc/add.php:125 ../inc/main.php:156
+msgid "Box Height "
+msgstr "ارتفاع جعبه"
+
+#: ../inc/add.php:129 ../inc/main.php:160
+msgid " px  ex: 300"
+msgstr "پیکسل مثال:300"
+
+#: ../inc/add.php:135 ../inc/main.php:166
+msgid "Box BackColor "
+msgstr "رنگ پس زمینه جعبه"
+
+#: ../inc/add.php:144 ../inc/main.php:175
+msgid "Box Effect "
+msgstr "جلوه نمایشی این جعبه"
+
+#: ../inc/add.php:148 ../inc/add.php:166 ../inc/add.php:254
+#: ../inc/main.php:179 ../inc/main.php:197 ../inc/main.php:285
+msgid "None"
+msgstr "هیچ"
+
+#: ../inc/add.php:149 ../inc/add.php:167 ../inc/add.php:255
+#: ../inc/main.php:180 ../inc/main.php:198 ../inc/main.php:286
+msgid "JRumble"
+msgstr ""
+
+#: ../inc/add.php:150 ../inc/add.php:168 ../inc/add.php:256
+#: ../inc/main.php:181 ../inc/main.php:199 ../inc/main.php:287
+msgid "Shake"
+msgstr ""
+
+#: ../inc/add.php:151 ../inc/add.php:169 ../inc/add.php:257
+#: ../inc/main.php:182 ../inc/main.php:200 ../inc/main.php:288
+msgid "Rotate 360"
+msgstr ""
+
+#: ../inc/add.php:152 ../inc/add.php:170 ../inc/add.php:258
+#: ../inc/main.php:183 ../inc/main.php:201 ../inc/main.php:289
+msgid "Rectangular"
+msgstr ""
+
+#: ../inc/add.php:153 ../inc/add.php:171 ../inc/add.php:259
+#: ../inc/main.php:184 ../inc/main.php:202 ../inc/main.php:290
+msgid "Scale"
+msgstr ""
+
+#: ../inc/add.php:156 ../inc/main.php:187
+msgid "Select one effect for box open event "
+msgstr "یک جلوه نمایشی برای رخداد باز شدن جعبه انتخاب نمایید"
+
+#: ../inc/add.php:162 ../inc/main.php:193
+msgid "Box Close Effect "
+msgstr "جلوه نمایشی بسته شدن جعبه"
+
+#: ../inc/add.php:174 ../inc/main.php:205
+msgid "Select one effect for box close event "
+msgstr "یک جلوه نمایشی برای رخداد بسته شدن جعبه انتخاب نمایید"
+
+#: ../inc/add.php:180 ../inc/main.php:211
+msgid "Button Settings"
+msgstr "تنظیمات دکمه"
+
+#: ../inc/add.php:186 ../inc/main.php:217
+msgid "Button Visibility"
+msgstr "نمایانی دکمه"
+
+#: ../inc/add.php:190 ../inc/main.php:221
+msgid "Show a button for show and hide the box "
+msgstr "نمایش یک دکمه برای نمایش و مخفی سازی جعبه"
+
+#: ../inc/add.php:196 ../inc/main.php:227
+msgid "Button Back Color"
+msgstr "رنگ پس زمینه دکمه"
+
+#: ../inc/add.php:205 ../inc/main.php:236
+msgid "Button text color"
+msgstr "رنگ نوشته ی دکمه"
+
+#: ../inc/add.php:214 ../inc/main.php:245
+msgid "Button Text "
+msgstr "متن دکمه"
+
+#: ../inc/add.php:223 ../inc/main.php:254
+msgid "Button FontSize "
+msgstr "سایز فونت دکمه"
+
+#: ../inc/add.php:232 ../inc/main.php:263
+msgid "Button width "
+msgstr "پهنای دکمه"
+
+#: ../inc/add.php:241 ../inc/main.php:272
+msgid "Button height "
+msgstr "ارتفاع دکمه"
+
+#: ../inc/add.php:250 ../inc/main.php:281
+msgid "Button Effect "
+msgstr "جلوه نمایشی دکمه"
+
+#: ../inc/add.php:261 ../inc/main.php:293
+msgid "Select one effect for button hover"
+msgstr "جلوه نمایشی برای زمان عبور ماوس از روی دکمه"
+
+#: ../inc/add.php:267 ../inc/main.php:299
+msgid "Button Position"
+msgstr "موقعیت دکمه"
+
+#: ../inc/add.php:271 ../inc/main.php:303
+msgid "top left"
+msgstr "بالا چپ"
+
+#: ../inc/add.php:272 ../inc/main.php:304
+msgid "top right"
+msgstr "بالا راست"
+
+#: ../inc/add.php:273 ../inc/main.php:305
+msgid "bottom left"
+msgstr "پایین چپ"
+
+#: ../inc/add.php:274 ../inc/main.php:306
+msgid "bottom right"
+msgstr "پایین راست"
+
+#: ../inc/add.php:276 ../inc/main.php:308
+msgid "Choose position of the box button"
+msgstr "موقعیت دکمه ی این جعبه را در صفحه انتخاب کنید"
+
+#: ../inc/add.php:282 ../inc/main.php:314
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: ../inc/add.php:288 ../inc/main.php:320
+msgid "Box Skin"
+msgstr "پوسته ی جعبه"
+
+#: ../inc/add.php:292 ../inc/main.php:324
+msgid "Dark"
+msgstr "تیره"
+
+#: ../inc/add.php:293 ../inc/main.php:325
+msgid "Light"
+msgstr "روشن"
+
+#: ../inc/add.php:294 ../inc/main.php:326
+msgid "Flat"
+msgstr "فلت"
+
+#: ../inc/add.php:301
+msgid "In which page you want show it ? "
+msgstr "قصد نمایش آن را در چه صفحاتی دارید ؟"
+
+#: ../inc/add.php:305 ../inc/main.php:337
+msgid "Show in any page"
+msgstr "نمایش در همه جای سایت"
+
+#: ../inc/add.php:306 ../inc/main.php:338
+msgid "Show only in home page"
+msgstr "نمایش فقط در صفحه ی اصلی سایت"
+
+#: ../inc/add.php:307 ../inc/main.php:339
+msgid "Show only in pages"
+msgstr "نمایش فقط در صفحات"
+
+#: ../inc/add.php:308 ../inc/main.php:340
+msgid "Show only in single articles"
+msgstr "نمایش فقط در نسخه کامل مطالب"
+
+#: ../inc/add.php:309 ../inc/main.php:341
+msgid "Show only in archive pages"
+msgstr "نمایش فقط در صفحات آرشیو"
+
+#: ../inc/add.php:310 ../inc/main.php:342
+msgid "Show only in category pages"
+msgstr "نمایش فقط در صفحات دسته ها"
+
+#: ../inc/add.php:317 ../inc/main.php:349
+msgid "Custome Css "
+msgstr "استایل اختصاصی شما"
+
+#: ../inc/add.php:321 ../inc/main.php:353
+msgid " Insert your custome css "
+msgstr "استایل اختصاصی خود را وارد نمایید"
+
+#: ../inc/add.php:327 ../inc/main.php:359
+msgid "Duration"
+msgstr "مدت زمان"
+
+#: ../inc/add.php:331
+msgid "Auto show the box after below number of miliseconds "
+msgstr "نمایش خودکار جعبه ، پس از مقدار وارد شده در کادر زیر برحسب میلی ثانیه"
+
+#: ../inc/add.php:334 ../inc/main.php:366
+msgid "number (in miliseconds)   ex: 2000"
+msgstr "عدد (به میلی ثانیه) مثال : 2000"
+
+#: ../inc/add.php:340 ../inc/main.php:372
+msgid "Mobile Compatible"
+msgstr "سازگار با دستگاه موبایل"
+
+#: ../inc/add.php:344 ../inc/main.php:376
+msgid "Make this box mobile compatile"
+msgstr "این جعبه را با دستگاه های موبایل سازگار کنید"
+
+#: ../inc/add.php:350 ../inc/main.php:382
+msgid "Visibility Status"
+msgstr "وضعیت نمایش"
+
+#: ../inc/add.php:354 ../inc/main.php:386
+msgid "Show this box in my site "
+msgstr "نمایش این جعبه در وبسایت من"
+
+#: ../inc/add.php:360
+msgid " Add Box "
+msgstr "اضافه نمودن جعبه"
+
+#: ../inc/add.php:368 ../inc/main.php:408
+msgid "Support In WORDPRESS.ORG"
+msgstr "درخواست پشتیبانی در مخزن وردپرس !"
+
+#: ../inc/add.php:369 ../inc/main.php:409
+msgid "Support In MY Website"
+msgstr "درخواست پشتیبانی در وبسایت من"
+
+#: ../inc/add.php:370 ../inc/main.php:410
+msgid "5 Star Vote To This Plugin!"
+msgstr "اعطای رای 5 ستاره به این پلاگین در مخزن وردپرس"
+
+#: ../inc/main.php:35
+msgid ""
+"Please correct \"Button width\" field of button settings section (it is "
+"numeric and could not be empty)"
+msgstr ""
+
+#: ../inc/main.php:36
+msgid ""
+"Please correct the entered value in \"Button width\" field of button "
+"settings section (max: 5000, min:0)"
+msgstr ""
+
+#: ../inc/main.php:37
+msgid ""
+"Please correct \"Button height\" field of button settings section (it is "
+"numeric and could not be empty)"
+msgstr ""
+
+#: ../inc/main.php:38
+msgid ""
+"Please correct the entered value in \"Button height\" field of button "
+"settings section (max: 5000, min:0)"
+msgstr ""
+
+#: ../inc/main.php:39
+msgid ""
+"Please correct \"Button FontSize\" field of button settings section (it is "
+"numeric and could not be empty)"
+msgstr ""
+
+#: ../inc/main.php:40
+msgid ""
+"Please correct the entered value in \"Button FontSize\" field of button "
+"settings section (max: 50, min:5)"
+msgstr ""
+
+#: ../inc/main.php:91
+msgid "Manage Current Available Boxes"
+msgstr "مدیریت جعبه های موجود"
+
+#: ../inc/main.php:91
+msgid "Add New Box"
+msgstr "اضافه نمودن جعبه ی جدید "
+
+#: ../inc/main.php:94 ../inc/main.php:104
+msgid "Box "
+msgstr "جعبه"
+
+#: ../inc/main.php:94
+msgid "'s Detail Updated"
+msgstr "به روز شد"
+
+#: ../inc/main.php:104
+msgid "Is Deleted"
+msgstr "با موفقیت حذف شد"
+
+#: ../inc/main.php:333
+msgid "Page of The Box"
+msgstr "صفحه نمایش افزونه"
+
+#: ../inc/main.php:363
+msgid " Show the box after below number of miliseconds "
+msgstr "نمایش خودکار جعبه ، پس از مقدار وارد شده در کادر زیر برحسب میلی ثانیه"
+
+#: ../inc/main.php:393
+msgid "Save"
+msgstr "ذخیره"
+
+#: ../inc/main.php:394
+msgid "Delete"
+msgstr "حذف"
+
+#: ../pg-fixed-box.php:163
+msgid ""
+"Insert a widget into this area, and it will be shown in the plugin pop up "
+"box."
+msgstr ""
+"یک ابزارک در اینجا قرار دهید تا به صورت خودکار در جعبه ی شما نمایش داده شود!"
+
+#~ msgid "Fixed Boxes"
+#~ msgstr "جعبه های موجود"
