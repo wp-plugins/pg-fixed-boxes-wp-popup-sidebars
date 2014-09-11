@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 Plugin Name: PG Fixed Boxes Plugin (WP POPUP  Sidebars)
 Plugin URI: http://fixedboxes.esy.es/wp/
 Description: Center positioned pop up box which accepts any wiget of your choice ! with ability to make unlimited number of fully customizable boxes !
-Version: 2.5.1
+Version: 2.5.2
 Author: PG Team
 Author URI: http://parsigroup.net/
 License: GPL2
@@ -23,7 +23,7 @@ function pg_fixedbox_install(){
 }
 
 function pg_fixedbox_remove() {
-	delete_option("fixed_boxes_data");
+	//delete_option("fixed_boxes_data");
 }
 
 /**************************
