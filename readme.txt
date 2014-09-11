@@ -27,7 +27,7 @@ or adding them to every box custome css textarea</p>
 
 <strong>Features :</strong>
 <li>- ability to show a complete sidebar in a popup box.</li>
-<li>- two different effects for box it self and its button !</li>
+<li>- six different effects for box it self and its button !</li>
 <li>- ability to make unlimited number of boxes !</li>
 <li>- ability to show in specific pages of your site</li>
 <li>- ability to make the box shows automatically or by user click or both !</li>
@@ -39,7 +39,6 @@ or adding them to every box custome css textarea</p>
 <li>- Ability to change button text color . </li>
 <li>- Ability to change button font size </li>
 <li>- Ability to make a box mobile compatible !! </li>
-<li>- Added 5 new amazing effects </li>
 <li>- Ability to choose between 3 different skins ! </li>
 
 == Changelog ==
