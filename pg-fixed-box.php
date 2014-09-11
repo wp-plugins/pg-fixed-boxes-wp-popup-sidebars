@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 Plugin Name: PG Fixed Boxes Plugin (WP POPUP  Sidebars)
 Plugin URI: http://fixedboxes.esy.es/wp/
 Description: Center positioned pop up box which accepts any wiget of your choice ! with ability to make unlimited number of fully customizable boxes !
-Version: 2.5.2
+Version: 2.5.3
 Author: PG Team
 Author URI: http://parsigroup.net/
 License: GPL2
@@ -85,7 +85,7 @@ add_action( 'admin_enqueue_scripts', 'pg_fixedbox_admin_scripts' );
 function pg_fixedbox_scripts(){
 	wp_enqueue_script('jquery');
 	wp_enqueue_style('pg-fixedbox-css',plugin_dir_url(__FILE__).'css/styles.css');
-	wp_enqueue_script('pg-fixedbox-jrumble',plugin_dir_url(__FILE__).'js/effects.js');
+	wp_enqueue_script('pg-fixedbox-effects',plugin_dir_url(__FILE__).'js/effects.js');
 }
 
 function pg_fixedbox_admin_scripts($hook){
@@ -183,7 +183,7 @@ function pg_code_insertion(){
 	$is_loaded_transit = false;
 	$mobilecomp;
 	$boxes = $currentboxes->get_boxes();
-	$transeffects = array('pgrotate1','pgrotate2','pgrect','pgscale');
+	$transeffects = array('pgrotate2','pgrect','pgscale');
 	if (is_array($boxes)&& count($boxes)>0){
 		foreach ($boxes as $key){
 			if(($key['page'] == 'everywhere' || (is_home() && $key['page'] == 'home')
