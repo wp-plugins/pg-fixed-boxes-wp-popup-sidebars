@@ -13,19 +13,23 @@ class pgboxdata{
 						'height' => '300',
 						'boxbackcolor' => '#ffffff',
 						'boxeffect' => 'none',
+						'boxcloseeffect' => 'none',
 						'autoshow' => 'yes',
 						'autoshowdelay' => 2000,
 						'page' => 'everywhere',
 						'wantbtn' => 'yes',
 						'btnbackcolor' => '#E04343',
+						'btntxtcolor' => '#000',
 						'btntxt' => 'Show',
+						'btnfontsize' => 16,
 						'btnpos' => 'pg-btn-tl',
 						'btnwidth' => 60,
 						'btnheight' => 45,
 						'btneffect' => 'none',
 						'wantedskin' => 'dark',
 						'box-status' => 'active',
-						'custome-css' => ''
+						'custome-css' => '',
+						'mobile_compatible' => 'yes'
 						);
 			$this->addbox($default);
 		}

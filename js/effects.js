@@ -18,12 +18,12 @@ function runboxeffect(id,effect){
 		ShakeIt('.'+id,100,900,6,'hor'); 
 	}
 	else if (effect == 'pgrotate1'){
-		jj('.'+id).transition({
+		jj('.'+id).stop().transition({
 					rotate: '+=15deg',
 					x: '+=10',
 					duration: 70
-				})
-				.hover(function(e){
+				});
+		jj('.'+id).hover(function(e){
 					jj('.'+id).stop().transition({
 					rotate: '-=15deg',
 					x: '-=10',
@@ -39,7 +39,47 @@ function runboxeffect(id,effect){
 					e.preventDefault();
 				});
 	}
-	
+	else if (effect == 'pgrotate2'){
+		jj('.'+id).stop().transition({
+					rotate: '+=360deg',
+					duration: 600
+				});
+	}
+	else if (effect == 'pgrect'){
+		jj('.'+id).stop().transition({
+					x:'-=30',
+					y:'-=30',
+					duration: 50
+				})
+				.transition({
+					x:'+=60',
+					duration: 200
+				})
+				.transition({
+					y:'+=60',
+					duration: 200
+				})
+				.transition({
+					x:'-=60',
+					duration: 200
+				})
+				.transition({
+					x:'+=30',
+					y:'-=30',
+					duration: 50
+				});
+	}
+	else if (effect == 'pgscale'){
+		
+			jj('.'+id).stop().transition({
+					scale:1.5,
+					duration: 300
+				})
+				.transition({
+					scale:1,
+					duration: 300
+				});
+	}
 }
 
 function runbtneffect(id,effect){
@@ -80,7 +120,56 @@ function runbtneffect(id,effect){
 					e.preventDefault();
 				});
 	}
-
+	else if (effect == 'pgrotate2'){
+		jj('.'+id).stop().hover(function(){
+					jj('.'+id).stop().transition({
+						rotate: '+=360deg',
+						duration: 600
+					});
+				});
+	}
+	else if (effect == 'pgrect'){
+		jj('.'+id).hover(function(){
+			jj('.'+id).stop().transition({
+					x:'-=10',
+					y:'-=10',
+					duration: 50
+				})
+				.transition({
+					x:'+=20',
+					duration: 100
+				})
+				.transition({
+					y:'+=20',
+					duration: 50
+				})
+				.transition({
+					x:'-=20',
+					duration: 100
+				})
+				.transition({
+					x:'+=10',
+					y:'-=10',
+					duration: 50
+				});},function(){}
+			
+		);
+	}
+	else if (effect == 'pgscale'){
+		jj('.'+id).hover(function(e){
+				jj('.'+id).stop().transition({
+						scale:1.5,
+						duration: 200
+					})
+					.transition({
+						scale:1,
+						duration: 200
+					});
+				
+			},function(){}
+			
+		);
+	}
 }
 
 //ShakeIt('.'+id,100,900,6,'hor'); 

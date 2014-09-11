@@ -3,8 +3,8 @@ defined( 'ABSPATH' ) OR exit;
 /*
 Plugin Name: PG Fixed Boxes Plugin (WP POPUP  Sidebars)
 Plugin URI: http://fixedboxes.esy.es/wp/
-Description: Center positioned pop up box which accepts any widget of your choice ! with ability to make unlimited number of fully customizable boxes !
-Version: 2.2
+Description: Center positioned pop up box which accepts any wiget of your choice ! with ability to make unlimited number of fully customizable boxes !
+Version: 2.5
 Author: PG Team
 Author URI: http://parsigroup.net/
 License: GPL2
@@ -90,6 +90,8 @@ function pg_fixedbox_scripts(){
 
 function pg_fixedbox_admin_scripts($hook){
 	wp_enqueue_style('pg-fixedbox-admin-css',plugin_dir_url(__FILE__).'css/admin-style.css');
+	if(is_rtl())
+		wp_enqueue_style('pg-fixedbox-admin-css-rtl',plugin_dir_url(__FILE__).'css/admin-style-rtl.css');
 	wp_enqueue_script('pg-admin-js',plugin_dir_url(__FILE__).'js/admin-effect.js');
 	wp_enqueue_style( 'wp-color-picker' );
 	wp_enqueue_script('pg-admin-colorpicker-js',plugin_dir_url(__FILE__).'js/colorpicker.js', array( 'wp-color-picker' ), false, true );
@@ -112,6 +114,12 @@ function pg_fixedbox_skin($skinname){
 	if($skinname == 'dark'){
 		wp_enqueue_style('pg-skin-dark',plugin_dir_url(__FILE__).'skins/dark/style.css');
 	}
+	elseif($skinname == 'light'){
+		wp_enqueue_style('pg-skin-light',plugin_dir_url(__FILE__).'skins/light/style.css');
+	}
+	elseif($skinname == 'flat'){
+		wp_enqueue_style('pg-skin-flat',plugin_dir_url(__FILE__).'skins/flat/style.css');
+	}
 }
 
 /**************************
@@ -130,10 +138,12 @@ connecting template to url
 add_action( 'template_redirect', 'pg_template_redirect' );
 function pg_template_redirect(){
 	global $wp_query;
-	if( $wp_query->query_vars['pg_fxb'] == 'fxb_bar' ){
-        include plugin_dir_path( __FILE__ ).'inc/pg-template.php';
-        die();
-   }
+	if(get_query_var('pg_fxb') !== '')
+		if( $wp_query->query_vars['pg_fxb'] == 'fxb_bar' ){
+			include plugin_dir_path( __FILE__ ).'inc/pg-template.php';
+			die();
+		}
+	return;
 }
 
 /**************************
@@ -173,7 +183,7 @@ function pg_code_insertion(){
 	$is_loaded_transit = false;
 	$mobilecomp;
 	$boxes = $currentboxes->get_boxes();
-	$transeffects = array('pgrotate1');
+	$transeffects = array('pgrotate1','pgrotate2','pgrect','pgscale');
 	if (is_array($boxes)&& count($boxes)>0){
 		foreach ($boxes as $key){
 			if(($key['page'] == 'everywhere' || (is_home() && $key['page'] == 'home')
@@ -182,7 +192,7 @@ function pg_code_insertion(){
 			&& $key['box-status'] == 'active'){
 				
 				$data [] = $key;	
-				if(!$loadedscripts){
+				if(!$loadedmainscripts){
 					pg_fixedbox_scripts();
 					pg_fixedbox_skin($key['wantedskin']);
 					$loadedmainscripts = true;
@@ -255,7 +265,25 @@ function appendthebox($boxdata,$mobilecomp){
 				<?php } ?>\
 						jj(\'.closebtn\').click(function(){\
 								jj(this).parent().parent().parent().fadeOut();\
+								runboxeffect(\'thebox<?php echo $key['theid'];?>\' , \'<?php echo $key['boxcloseeffect'];?>\');\
 						}); \
+			<?php if($key['mobile_compatible'] == 'yes'){ ?>\
+					<?php if($mobilecomp[$key['theid']] == 1){ ?>\
+						if( jj(window).width() < <?php echo $key['width']; ?>){\
+							jj(\'.pg-centered<?php echo $key['theid'];?>\').addClass(\'mobile\').width( jj(window).width() - 30).height(jj(window).height()-100);\
+							jj(\'.thebox<?php echo $key['theid'];?>\').addClass(\'mobile\').width( jj(window).width() - 42).height(jj(window).height()-140);\						}\
+						jj(window).resize(function() {\
+							if( jj(window).width() < <?php echo $key['width']; ?>+30){\
+								jj(\'.pg-centered<?php echo $key['theid'];?>\').addClass(\'mobile\').width( jj(window).width() - 30).height(jj(window).height()-100);\
+								jj(\'.thebox<?php echo $key['theid'];?>\').addClass(\'mobile\').width( jj(window).width() - 42).height(jj(window).height()-140);\
+							}\
+							else if( jj(window).width() > <?php echo $key['width']; ?>+30){\
+								jj(\'.pg-centered<?php echo $key['theid'];?>\').removeClass(\'mobile\').width( <?php echo $key['width']+6; ?> ).height(<?php echo $key['height']+6; ?>);\
+								jj(\'.thebox<?php echo $key['theid'];?>\').removeClass(\'mobile\').width( <?php echo $key['width']; ?> ).height(<?php echo $key['height']; ?>);\
+							}\
+						});\
+					<?php } ?>\
+			<?php } ?>\
 						</scr'+'ipt>';
 						
 						
@@ -280,7 +308,7 @@ function appendthebox($boxdata,$mobilecomp){
 							'+thescript); 
 					}
 		});
-		
+		//jj(this).parent().parent().parent().fadeOut();\
 <?php 
 	}
 ?>

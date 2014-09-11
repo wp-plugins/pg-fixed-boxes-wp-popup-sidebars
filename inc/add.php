@@ -10,21 +10,21 @@ if ( is_admin() ) {
 		$_REQUEST['updated'] = false; // This checks whether the form has just been submitted. 
 	else {
 		$check = true;
-		if (!isset($_POST['box_name']) || trim($_POST['box_name']) == false)  {$check = false;	$errors [] = 'Please enter the name of box'; }
-		if (!isset($_POST['box_width']) || !is_numeric($_POST['box_width'])) {$check = false;  $errors [] = 'Please correct the width field (It only accept Numbers)'; }
-		if (!isset($_POST['box_height']) || !is_numeric($_POST['box_height'])) {$check = false;  $errors [] = 'Please correct the height field (It only accept Numbers)'; }
-		if (!isset($_POST['boxbgcolor'])) {$check = false;	$errors [] = 'Please enter background-color of the box. Example : #FFFFFF'; }
+		if (!isset($_POST['box_name']) || trim($_POST['box_name']) == false)  {$check = false;	$errors [] = __('Please enter the name of box', 'fixedboxes' ); }
+		if (!isset($_POST['box_width']) || !is_numeric($_POST['box_width'])) {$check = false;  $errors [] = __('Please correct the width field (It only accept Numbers)', 'fixedboxes' ); }
+		if (!isset($_POST['box_height']) || !is_numeric($_POST['box_height'])) {$check = false;  $errors [] = __('Please correct the height field (It only accept Numbers)', 'fixedboxes' ); }
+		if (!isset($_POST['boxbgcolor'])) {$check = false;	$errors [] = __('Please enter background-color of the box. Example : #FFFFFF', 'fixedboxes' ); }
 		if(isset($_POST['autoshow'])){
-			if (!isset($_POST['box_autoshow_delay']) || !is_numeric($_POST['box_autoshow_delay'])) {$check = false;  $errors [] = 'Please correct "Number of miliseconds" field of autoshow section (it is numeric and could not be empty)'; }
-			elseif($_POST['box_autoshow_delay'] < 0 || $_POST['box_autoshow_delay'] > 50000) {$check = false;  $errors [] = 'Please correct the entered value in "Number of miliseconds" field of autoshow section (max: 50000, min:0)'; }
+			if (!isset($_POST['box_autoshow_delay']) || !is_numeric($_POST['box_autoshow_delay'])) {$check = false;  $errors [] = __('Please correct "Number of miliseconds" field of autoshow section (it is numeric and could not be empty)', 'fixedboxes' ); }
+			elseif($_POST['box_autoshow_delay'] < 0 || $_POST['box_autoshow_delay'] > 50000) {$check = false;  $errors [] = __('Please correct the entered value in "Number of miliseconds" field of autoshow section (max: 50000, min:0)', 'fixedboxes' ); }
 		}
 		if(isset($_POST['iwantbtn'])){
-			if (!isset($_POST['btnwidth']) || !is_numeric($_POST['btnwidth'])) {$check = false;  $errors [] = 'Please correct "Button width" field of i want button section (it is numeric and could not be empty)'; }
-			elseif($_POST['btnwidth'] < 0 || $_POST['btnwidth'] > 5000) {$check = false;  $errors [] = 'Please correct the entered value in "Button width" field of i want button section (max: 5000, min:0)'; }
-			if (!isset($_POST['btnheight']) || !is_numeric($_POST['btnheight'])) {$check = false;  $errors [] = 'Please correct "Button height" field of i want button section (it is numeric and could not be empty)'; }
-			elseif($_POST['btnheight'] < 0 || $_POST['btnheight'] > 5000) {$check = false;  $errors [] = 'Please correct the entered value in "Button height" field of i want button section (max: 5000, min:0)'; }
+			if (!isset($_POST['btnwidth']) || !is_numeric($_POST['btnwidth'])) {$check = false;  $errors [] = __('Please correct "Button width" field of i want button section (it is numeric and could not be empty)', 'fixedboxes' ); }
+			elseif($_POST['btnwidth'] < 0 || $_POST['btnwidth'] > 5000) {$check = false;  $errors [] = __('Please correct the entered value in "Button width" field of i want button section (max: 5000, min:0)', 'fixedboxes' ); }
+			if (!isset($_POST['btnheight']) || !is_numeric($_POST['btnheight'])) {$check = false;  $errors [] = __('Please correct "Button height" field of i want button section (it is numeric and could not be empty)', 'fixedboxes' ); }
+			elseif($_POST['btnheight'] < 0 || $_POST['btnheight'] > 5000) {$check = false;  $errors [] = __('Please correct the entered value in "Button height" field of i want button section (max: 5000, min:0)', 'fixedboxes' ); }
 		}
-		if (!isset($_POST['btnbgcolor'])) {$check = false;	$errors [] = 'Please enter background-color of the button. Example : #FFFFFF'; }
+		if (!isset($_POST['btnbgcolor'])) {$check = false;	$errors [] = __('Please enter background-color of the button. Example : #FFFFFF', 'fixedboxes' ); }
 			
 		if($check){
 			if(isset($_POST['iwantbtn']) && $_POST['iwantbtn'] == 'yes')
@@ -43,19 +43,23 @@ if ( is_admin() ) {
 						'height' => $_POST['box_height'],
 						'boxbackcolor' => $_POST['boxbgcolor'],
 						'boxeffect' => $_POST['selectedboxeffect'],
+						'boxcloseeffect' => $_POST['selectedboxcloseeffect'],
 						'autoshow' => $autoshow,
 						'autoshowdelay' => $autoshowdelay,
 						'page' => $_POST['selectedplace'],
 						'wantbtn' => $btnvisibility,
 						'btnbackcolor' => $_POST['btnbgcolor'],
+						'btntxtcolor' => $_POST['btntxtcolor'],
 						'btntxt' => $_POST['btntext'],
+						'btnfontsize' => $_POST['btnfontsize'],
 						'btnpos' => $_POST['btnplace'],
 						'btnwidth' => $_POST['btnwidth'],
 						'btnheight' => $_POST['btnheight'],
 						'btneffect' => $_POST['selectedbtneffect'],
 						'wantedskin' => $_POST['selectedskin'],
 						'box-status' => $_POST['box-status'],
-						'custome-css' => $_POST['custome-css']
+						'custome-css' => $_POST['custome-css'],
+						'mobile_compatible' => $_POST['mobile_compatible']
 						);
 			$datasender->addbox($data);
 			$updatedformtitle = $_POST['box_name'];
@@ -68,14 +72,14 @@ if ( is_admin() ) {
 	}
 ?>
 	<div class="wrap">
-		<?php screen_icon(); echo "<h2 class='pg-sidebars'>" .  __( 'ADD New Box', 'fixedboxes' ) . "<a class=\"button-primary\" href=\"options-general.php?page=pg-main\">Manage Boxes</a></h2>";?>
+		<?php  echo "<h2 class='pg-sidebars'>" .  __( 'ADD New Box', 'fixedboxes' ) . "<a class=\"button-primary\" href=\"options-general.php?page=pg-main\">" .  __( 'Manage Boxes', 'fixedboxes' ) . "</a><a class=\"button-primary\" target=\"_blank\" href=\"http://parsigroup.net\">" .  __( 'My Website', 'fixedboxes' ) . "</a></h2>";?>
 		<hr />
 		<?php if ( false !== $_REQUEST['updated'] && $iscomplete) { ?>
-		<div class="updated fade"><p><strong><?php _e( 'Box Added' ); ?></strong></p></div>
+		<div class="updated fade"><p><strong><?php _e( 'Box Added' , 'fixedboxes'); ?></strong></p></div>
 
 		<?php }else if(false !== $_REQUEST['updated'] && !$iscomplete){ ?>
 			<div class="error fade">
-				<p><strong><?php _e( 'Errors detected :' ); ?></strong></p>
+				<p><strong><?php _e( 'Errors detected :' , 'fixedboxes'); ?></strong></p>
 				<?php
 				for($i = 0;$i<count($errors); $i++) echo '<p>'.$errors[$i].'</p>';
 				?>
@@ -144,13 +148,33 @@ if ( is_admin() ) {
 								<option value="none"   selected="selected"><?php _e("None", 'fixedboxes' ); ?></option>
 								<option value="rumble"   ><?php _e("JRumble", 'fixedboxes' ); ?></option>
 								<option value="shake"   ><?php _e("Shake", 'fixedboxes' ); ?></option>
-								<option value="pgrotate1"   ><?php _e("Rotate 15", 'fixedboxes' ); ?></option>
-
+								<option value="pgrotate2"   ><?php _e("Rotate 360", 'fixedboxes' ); ?></option>
+								<option value="pgrect"   ><?php _e("Rectangular", 'fixedboxes' ); ?></option>
+								<option value="pgscale"   ><?php _e("Scale", 'fixedboxes' ); ?></option>
+							
 							</select>
 							<span class="description"><?php _e("Select one effect for box open event ", 'fixedboxes' ); ?></span>
 						</td>
 					</tr>
-	
+						
+					<tr>	
+						<th>
+							<?php _e("Box Close Effect ", 'fixedboxes' ); ?>
+						</th>					
+						<td>
+							<select name="selectedboxcloseeffect">
+								<option value="none"   selected="selected"><?php _e("None", 'fixedboxes' ); ?></option>
+								<option value="rumble"   ><?php _e("JRumble", 'fixedboxes' ); ?></option>
+								<option value="shake"   ><?php _e("Shake", 'fixedboxes' ); ?></option>
+								<option value="pgrotate2"   ><?php _e("Rotate 360", 'fixedboxes' ); ?></option>
+								<option value="pgrect"   ><?php _e("Rectangular", 'fixedboxes' ); ?></option>
+								<option value="pgscale"   ><?php _e("Scale", 'fixedboxes' ); ?></option>
+									
+							</select>
+							<span class="description"><?php _e("Select one effect for box close event ", 'fixedboxes' ); ?><span>
+						</td>
+					</tr>
+								
 					<tr>	
 						<th>
 							<h3><?php _e("Button Settings", 'fixedboxes' ); ?></h3>
@@ -175,13 +199,31 @@ if ( is_admin() ) {
 							<input class="btnbgcolor" name="btnbgcolor" type="text" value="<?php echo (isset($_POST['btnbgcolor']))? $_POST['btnbgcolor'] : "#E04343"; ?>" data-default-color="<?php echo (isset($_POST['btnbgcolor']))? $_POST['btnbgcolor'] : "#E04343"; ?>" ></input>		
 						</td>
 					</tr>	
-
+					
+					<tr>
+						<th>
+							<?php _e("Button text color", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="btntxtcolor" name="btntxtcolor" type="text" value="<?php echo (isset($_POST['btntxtcolor']))? $_POST['btntxtcolor'] : "#000"; ?>" data-default-color="<?php echo (isset($_POST['btnbgcolor']))? $_POST['btnbgcolor'] : "#000"; ?>"></input>
+						</td>
+					</tr>
+					
 					<tr>
 						<th>
 							<?php _e("Button Text ", 'fixedboxes' ); ?>
 						</th>
 						<td>
 							<input class="btntext" name="btntext" type="text" value="<?php echo (isset($_POST['btntext']))? $_POST['btntext'] : ""; ?>"  ></input>			
+						</td>
+					</tr>
+					
+					<tr>
+						<th>
+							<?php _e("Button FontSize ", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input class="btnfontsize" name="btnfontsize" type="text" value="<?php echo (isset($_POST['btnfontsize']))? $_POST['btnfontsize'] : 14; ?>"  size="4"></input>			
 						</td>
 					</tr>
 					
@@ -212,7 +254,9 @@ if ( is_admin() ) {
 								<option value="none"   selected="selected"><?php _e("None", 'fixedboxes' ); ?></option>
 								<option value="rumble"   ><?php _e("JRumble", 'fixedboxes' ); ?></option>
 								<option value="shake"   ><?php _e("Shake", 'fixedboxes' ); ?></option>
-								<option value="pgrotate1"  ><?php _e("Rotate 15", 'fixedboxes' ); ?></option>
+								<option value="pgrotate2"  ><?php _e("Rotate 360", 'fixedboxes' ); ?></option>
+								<option value="pgrect"   ><?php _e("Rectangular", 'fixedboxes' ); ?></option>
+								<option value="pgscale"   ><?php _e("Scale", 'fixedboxes' ); ?></option>
 							</select>
 							<span class="description"><?php _e("Select one effect for button hover", 'fixedboxes' ); ?></span>
 						</td>
@@ -246,6 +290,8 @@ if ( is_admin() ) {
 						<td>
 							<select name="selectedskin">
 								<option value="dark"  selected="selected"><?php _e("Dark", 'fixedboxes' ); ?></option>
+								<option value="light"   ><?php _e("Light", 'fixedboxes' ); ?></option>
+								<option value="flat"   ><?php _e("Flat", 'fixedboxes' ); ?></option>
 							</select>
 						</td>
 					</tr>
@@ -288,7 +334,17 @@ if ( is_admin() ) {
 							<span class="description"><?php _e("number (in miliseconds)   ex: 2000", 'fixedboxes' ); ?></span>
 						</td>
 					</tr>	
-
+					
+					<tr>	
+						<th>	
+							<?php _e("Mobile Compatible", 'fixedboxes' ); ?>
+						</th>
+						<td>
+							<input type="checkbox" name="mobile_compatible" value="yes"  checked></input>
+							<label for="mobile_compatible"><?php _e("Make this box mobile compatile", 'fixedboxes' ); ?></label>
+						</td>
+					</tr>
+							
 					<tr>	
 						<th>	
 							<?php _e("Visibility Status", 'fixedboxes' ); ?>
@@ -309,3 +365,6 @@ if ( is_admin() ) {
 	<?php
 }
 ?>
+<a class="button-primary" target="_blank" href="http://wordpress.org/support/plugin/pg-fixed-boxes-wp-popup-sidebars"> <?php _e( 'Support In WORDPRESS.ORG', 'fixedboxes' ); ?></a>
+<a class="button-primary" target="_blank" href="http://parsigroup.net/افزونه-ی-pg-fixed-boxes/"> <?php _e( 'Support In MY Website', 'fixedboxes' ); ?></a>
+<a class="button-primary" target="_blank" href="http://wordpress.org/support/view/plugin-reviews/pg-fixed-boxes-wp-popup-sidebars?filter=5"> <?php _e( '5 Star Vote To This Plugin!', 'fixedboxes' ); ?></a>

@@ -10,7 +10,7 @@ Tags: pop up sidebar, fixed boxes
 
 Tested up to: wordpress 4.0
  
-Stable tag: trunk
+Stable tag: 2.5
 
 License: "GPLv2 or later"
 
@@ -35,8 +35,19 @@ or adding them to every box custome css textarea</p>
 <li>- ability to change the box width and height and button width and height !</li>
 <li>- ability to change the the button and box background color directly from settings page</li>
 <li>- ability to add custome css in every box settings !</li>
+<li>- Ability to set an effect for box close event ! </li>
+<li>- Ability to change button text color . </li>
+<li>- Ability to change button font size </li>
+<li>- Ability to make a box mobile compatible !! </li>
+<li>- Added 5 new amazing effects </li>
+<li>- Ability to choose between 3 different skins ! </li>
 
 == Changelog ==
+2.5 <br>
+<li>Resolved few bugs.</li>
+<li>Added all pro features for free (There is no lite version anymore).</li>
+<li>Removed bugy effect XRotate15.</li>
+
 2.2 <br>
 <li>hot fixes for admin functionality.</li>
  
@@ -46,14 +57,12 @@ or adding them to every box custome css textarea</p>
 2.0 <br>
 <strong>NEW In Version 2 :</strong>
 <li>- Redesigned admin area .</li>
-<li>- Ability to set an effect for box close event ! (only in pro)</li>
-<li>- Ability to change button text color . (only in pro)</li>
-<li>- Ability to change button font size (only in pro)</li>
-<li>- Ability to make a box mobile compatible !! (only in pro)</li>
+<li>- Ability to set an effect for box close event ! </li>
+<li>- Ability to change button text color . </li>
+<li>- Ability to change button font size </li>
+<li>- Ability to make a box mobile compatible !! </li>
 <li>- Added 5 new amazing effects (1 in lite)</li>
-<li>- Ability to choose between 3 different skins ! (1 in lite)</li>
-
-Few of above features are deleted in lite version.
+<li>- Ability to choose between 3 different skins ! </li>
 
 == Installation ==
 <strong>HOW TO INSTALL</strong>
