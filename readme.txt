@@ -10,7 +10,7 @@ Tags: pop up sidebar, fixed boxes
 
 Tested up to: wordpress 4.0
  
-Stable tag: 2.5
+Stable tag: 2.5.1
 
 License: "GPLv2 or later"
 
