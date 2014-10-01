@@ -4,11 +4,11 @@ defined( 'ABSPATH' ) OR exit;
 Plugin Name: PG Fixed Boxes Plugin (WP POPUP  Sidebars)
 Plugin URI: http://fixedboxes.esy.es/wp/
 Description: Center positioned pop up box which accepts any wiget of your choice ! with ability to make unlimited number of fully customizable boxes !
-Version: 2.5.4
+Version: 2.6
 Author: PG Team
 Author URI: http://parsigroup.net/
-License: GPL2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 /**************************
@@ -178,17 +178,18 @@ add_action( 'wp_head', 'pg_code_insertion' );
 function pg_code_insertion(){
 	$currentboxes = new pgboxdata();
 	$boxes;
-	$data;
+	$data = array();
 	$loadedmainscripts = false;
 	$is_loaded_transit = false;
 	$mobilecomp;
 	$boxes = $currentboxes->get_boxes();
 	$transeffects = array('pgrotate2','pgrect','pgscale');
-	if (is_array($boxes)&& count($boxes)>0){
+	//print_r($boxes);
+	if (is_array($boxes) && count($boxes) > 0){
 		foreach ($boxes as $key){
 			if(($key['page'] == 'everywhere' || (is_home() && $key['page'] == 'home')
 			|| (is_page() && $key['page'] == 'page') || (is_single() && $key['page'] == 'single')
-			|| (is_archive() && $key['page'] == 'archive') || (is_category && $key['page'] == 'category'))
+			|| (is_archive() && $key['page'] == 'archive') || (is_category() && $key['page'] == 'category'))
 			&& $key['box-status'] == 'active'){
 				
 				$data [] = $key;	
@@ -211,8 +212,9 @@ function pg_code_insertion(){
 				}
 			}
 		}
-		if(count($data)>0)
+		if(isset($data) && count($data)>0){
 			appendthebox($data,$mobilecomp);
+		}
 	}
 }
 
@@ -236,10 +238,19 @@ function appendthebox($boxdata,$mobilecomp){
 			url: "<?php echo get_bloginfo('url'); ?>/index.php",
 			data: { pg_fxb: "fxb_bar", pg_sdbi: "<?php echo $key['theid']; ?>" },
 			success: function(data) { 
-						var fxcontents = data; console.log(fxcontents); //alert(data);
+						var fxcontents = data;
 						thescript = '\
 						<scr'+'ipt>\
 						var jj = jQuery.noConflict(); \
+						var tandl = getfxpos( jj(\'.pg-centered<?php echo $key['theid'];?>\').width(), jj(\'.pg-centered<?php echo $key['theid'];?>\').height()  );\
+						\
+						\
+						jj(\'.pg-centered<?php echo $key['theid'];?>\').css({\'top\' : tandl[0] , \'left\' : tandl[1]});\
+						jj(window).resize(function(){\
+							tandl = getfxpos( jj(\'.pg-centered<?php echo $key['theid'];?>\').width(), jj(\'.pg-centered<?php echo $key['theid'];?>\').height()  );\
+							jj(\'.pg-centered<?php echo $key['theid'];?>\').css({\'top\' : tandl[0] , \'left\' : tandl[1]});\
+						});\
+						\
 						jj(\'.pg-btn.btn<?php echo $key['theid'];?>\').click(function(){\
 								jj(\'<?php echo '.pg-fixedbox' . $key['theid'];?>\').css({\
 										\'visibility\':\'visible\',\

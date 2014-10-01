@@ -1,4 +1,19 @@
 var jj=jQuery.noConflict();
+function getfxpos( width, height ){
+	var w = window,
+	d = document,
+	e = d.documentElement,
+	g = d.getElementsByTagName('body')[0],
+	x = w.innerWidth || e.clientWidth || g.clientWidth,
+	y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+	var toppos = y/2 - height/2;
+	var leftpos = x/2 - width/2;
+	var tandl = new Array(2);
+	tandl[0] = toppos;
+	tandl[1] = leftpos;
+	return tandl;
+}
+
 function runboxeffect(id,effect){
 	if (effect == 'rumble'){
 		jQuery('.'+id).jrumble({

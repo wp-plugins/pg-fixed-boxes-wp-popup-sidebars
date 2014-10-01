@@ -1,18 +1,12 @@
 === PG FIXED BOX ===
-
 Contributors: ParsiGroup.net Team
-
-Donate link: fixedboxes.esy.es/wp
-
-Requires at least: wordpress 3.5
-
 Tags: pop up sidebar, fixed boxes 
-
-Tested up to: wordpress 4.0
- 
-Stable tag: 2.5.1
-
-License: "GPLv2 or later"
+Donate link: fixedboxes.esy.es/wp
+Requires at least: wordpress 3.5
+Tested up to: 4.0
+Stable tag: 2.6
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 <p>This is a pop up sidebars plugin , which means first you create a box from plugin page in wordpress
@@ -26,15 +20,15 @@ you can add style for your widgets in your theme style.css file or inserting the
 or adding them to every box custome css textarea</p>
 
 <strong>Features :</strong>
-<li>- ability to show a complete sidebar in a popup box.</li>
-<li>- six different effects for box it self and its button !</li>
-<li>- ability to make unlimited number of boxes !</li>
-<li>- ability to show in specific pages of your site</li>
-<li>- ability to make the box shows automatically or by user click or both !</li>
-<li>- ability to make a box invisibile without deleting it !</li>
-<li>- ability to change the box width and height and button width and height !</li>
-<li>- ability to change the the button and box background color directly from settings page</li>
-<li>- ability to add custome css in every box settings !</li>
+<li>- Ability to show a complete sidebar in a popup box.</li>
+<li>- Six different effects for box it self and its button !</li>
+<li>- Ability to make unlimited number of boxes !</li>
+<li>- Ability to show in specific pages of your site</li>
+<li>- Ability to make the box shows automatically or by user click or both !</li>
+<li>- Ability to make a box invisibile without deleting it !</li>
+<li>- Ability to change the box width and height and button width and height !</li>
+<li>- Ability to change the the button and box background color directly from settings page</li>
+<li>- Ability to add custome css in every box settings !</li>
 <li>- Ability to set an effect for box close event ! </li>
 <li>- Ability to change button text color . </li>
 <li>- Ability to change button font size </li>
@@ -42,6 +36,10 @@ or adding them to every box custome css textarea</p>
 <li>- Ability to choose between 3 different skins ! </li>
 
 == Changelog ==
+2.6 <br>
+<li>Resolved few bugs.</li>
+<li>Improved box top position in some screens</li>
+
 2.5 <br>
 <li>Resolved few bugs.</li>
 <li>Added all pro features for free (There is no lite version anymore).</li>
