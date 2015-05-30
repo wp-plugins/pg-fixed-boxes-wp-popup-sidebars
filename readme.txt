@@ -3,7 +3,7 @@ Contributors: ParsiGroup.net Team
 Tags: pop up sidebar, fixed boxes 
 Donate link: fixedboxes.esy.es/wp
 Requires at least: wordpress 3.5
-Tested up to: 4.0
+Tested up to: 4.2.2
 Stable tag: 2.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
